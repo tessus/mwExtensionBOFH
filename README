@@ -1,0 +1,31 @@
+Extension:BOFH                                             by Helmut K. C. Tessarek
+--------------
+
+This extension adds a <bofh/> tag to display a random BOFH excuse
+
+Installation
+------------
+
+cd extensions
+git clone https://github.com/tessus/mwExtensionBOFH.git BOFH
+
+Then add to the bottom of your LocalSettings.php file:
+
+# Extension:BOFH
+require_once("$IP/extensions/BOFH/BOFH.php");
+
+Usage
+-----
+
+Add a <bofh/> tag wherever you want a randomly-generated BOFH excuse to appear.
+
+Here is a sample template for displaying the BOFH excuse in a nostalgic look:
+
+Template:BOFH 
+-------------
+
+<table border="4" width="{{{1|600}}}" cellspacing="0" cellpadding="10" bgcolor="#000000">
+<td><font color="#00ff40">
+<bofh/>
+</font></td>
+</table>
