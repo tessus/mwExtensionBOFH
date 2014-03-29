@@ -33,18 +33,18 @@
  * http://www.gnu.org/copyleft/gpl.html
  */
  
-if( !defined( 'MEDIAWIKI' ) ) 
+if ( !defined('MEDIAWIKI') )
 {
 	die( 'This file is a MediaWiki extension, it is not a valid entry point' );
 }
  
 $wgExtensionCredits['parserhook'][] = array(
-	'path' => __FILE__,
-	'name' => 'BOFH',
-	'author' => 'Helmut K. C. Tessarek',
-	'url' => 'https://github.com/tessus/mwExtensionBOFH',
+	'path'        => __FILE__,
+	'name'        => 'BOFH',
+	'author'      => 'Helmut K. C. Tessarek',
+	'url'         => 'https://github.com/tessus/mwExtensionBOFH',
 	'description' => 'Adds a <nowiki><bofh/></nowiki> tag to display a random BOFH excuse',
-	'version' => '1.1'
+	'version'     => '1.1'
 );
  
 $wgExtensionFunctions[] = "BOFH::bofhExcuse";
