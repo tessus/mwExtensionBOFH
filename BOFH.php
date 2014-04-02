@@ -5,6 +5,8 @@
  * This extension adds a <bofh/> tag to display a random BOFH excuse
  *
  * Written by Helmut K. C. Tessarek
+ *
+ * https://www.mediawiki.org/wiki/Extension:BOFH
  * https://github.com/tessus/mwExtensionBOFH
  *
  * Sample template for displaying the BOFH excuse in a nostalgic look:
@@ -41,8 +43,8 @@ if ( !defined('MEDIAWIKI') )
 $wgExtensionCredits['parserhook'][] = array(
 	'path'        => __FILE__,
 	'name'        => 'BOFH',
-	'author'      => 'Helmut K. C. Tessarek',
-	'url'         => 'https://github.com/tessus/mwExtensionBOFH',
+	'author'      => '[https://www.mediawiki.org/wiki/User:Tessus Helmut K. C. Tessarek]',
+	'url'         => 'https://www.mediawiki.org/wiki/Extension:BOFH',
 	'description' => 'Adds a <nowiki><bofh/></nowiki> tag to display a random BOFH excuse',
 	'version'     => '1.1'
 );
