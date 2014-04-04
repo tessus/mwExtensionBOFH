@@ -53,6 +53,8 @@ $wgExtensionFunctions[] = "BOFH::bofhExcuse";
  
 class BOFH
 {
+	static private $excuse = NULL;
+
 	public static function bofhExcuse() 
 	{
 		global $wgParser;
@@ -62,7 +64,14 @@ class BOFH
 	public static function renderBOFH( $input, $params, $parser ) 
 	{
 		$parser->disableCache();
+		BOFH::randomExcuse();
 
+		$output = $parser->recursiveTagParse(htmlspecialchars(BOFH::$excuse, ENT_QUOTES));
+		return $output;
+	}
+
+	private static function randomExcuse()
+	{
 		$excuse = array(
 			'Support staff hung over, send aspirin and come back LATER.',
 			'Someone is standing on the ethernet cable, causing a kink in the cable',
@@ -490,10 +499,9 @@ class BOFH
 		);
 
 		mt_srand((double) microtime() * 1000000);
-		$today = mt_rand(0, count($excuse)-1);
+		$random = mt_rand(0, count($excuse)-1);
 
-		$output = $parser->recursiveTagParse(htmlspecialchars($excuse[$today], ENT_QUOTES));
-		return $output;
+		BOFH::$excuse = $excuse[$random];
 	}
 }
 ?>
