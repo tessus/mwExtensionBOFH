@@ -2,22 +2,12 @@
 /**
  * BOFH MediaWiki extension.
  *
- * This extension adds a <bofh/> tag to display a random BOFH excuse
+ * This extension adds a tag and a function to display a random BOFH excuse
  *
  * Written by Helmut K. C. Tessarek
  *
  * https://www.mediawiki.org/wiki/Extension:BOFH
  * https://github.com/tessus/mwExtensionBOFH
- *
- * Sample template for displaying the BOFH excuse in a nostalgic look:
- *
- * Template:BOFH
- *
- * <table border="4" width="{{{1|600}}}" cellspacing="0" cellpadding="10" bgcolor="#000000">
- * <td><font color="#00ff40">
- * <bofh/>
- * </font></td>
- * </table>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -34,39 +24,64 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  * http://www.gnu.org/copyleft/gpl.html
  */
- 
+
 if ( !defined('MEDIAWIKI') )
 {
 	die( 'This file is a MediaWiki extension, it is not a valid entry point' );
 }
- 
+
 $wgExtensionCredits['parserhook'][] = array(
 	'path'        => __FILE__,
 	'name'        => 'BOFH',
 	'author'      => '[https://www.mediawiki.org/wiki/User:Tessus Helmut K. C. Tessarek]',
 	'url'         => 'https://www.mediawiki.org/wiki/Extension:BOFH',
-	'description' => 'Adds a <nowiki><bofh/></nowiki> tag to display a random BOFH excuse',
-	'version'     => '1.1'
+	'description' => 'Adds a tag and a function to display a random BOFH excuse',
+	'version'     => '1.2'
 );
- 
-$wgExtensionFunctions[] = "BOFH::bofhExcuse";
- 
+
+$wgHooks['ParserFirstCallInit'][] = 'BOFH::bofhExcuse';
+$wgExtensionMessagesFiles['BOFH'] = __DIR__ . '/BOFH.magic.php';
+
 class BOFH
 {
 	static private $excuse = NULL;
 
-	public static function bofhExcuse() 
+	public static function bofhExcuse( &$parser )
 	{
-		global $wgParser;
-		$wgParser->setHook("bofh", "BOFH::renderBOFH");
+		$parser->setHook('bofh', 'BOFH::renderBOFH');
+		$parser->setFunctionHook('bofh', 'BOFH::functionBOFH', SFH_NO_HASH);
+
+		return true;
 	}
- 
-	public static function renderBOFH( $input, $params, $parser ) 
+
+	public static function renderBOFH( $input, $params, $parser )
 	{
 		$parser->disableCache();
 		BOFH::randomExcuse();
 
 		$output = $parser->recursiveTagParse(htmlspecialchars(BOFH::$excuse, ENT_QUOTES));
+
+		return $output;
+	}
+
+	public static function functionBOFH( $parser, $value )
+	{
+		$parser->disableCache();
+		BOFH::randomExcuse();
+
+		if (empty($value) || intval($value) <= 0)
+		{
+			$width = '';
+		}
+		else
+		{
+			$width = "width=\"$value\"";
+		}
+
+		$output = "<table border=\"4\" $width cellspacing=\"0\" cellpadding=\"10\" bgcolor=\"#000000\"><td><font color=\"#00ff40\">\n";
+		$output .= htmlspecialchars(BOFH::$excuse, ENT_QUOTES)."\n";
+		$output .= "</font></td></table>\n";
+
 		return $output;
 	}
 
