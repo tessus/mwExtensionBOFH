@@ -31,12 +31,13 @@ if ( !defined('MEDIAWIKI') )
 }
 
 $wgExtensionCredits['parserhook'][] = array(
-	'path'        => __FILE__,
-	'name'        => 'BOFH',
-	'author'      => '[https://www.mediawiki.org/wiki/User:Tessus Helmut K. C. Tessarek]',
-	'url'         => 'https://www.mediawiki.org/wiki/Extension:BOFH',
-	'description' => 'Adds a tag and a function to display a random BOFH excuse',
-	'version'     => '1.2'
+	'path'         => __FILE__,
+	'name'         => 'BOFH',
+	'author'       => '[https://www.mediawiki.org/wiki/User:Tessus Helmut K. C. Tessarek]',
+	'url'          => 'https://www.mediawiki.org/wiki/Extension:BOFH',
+	'description'  => 'Adds a tag and a function to display a random BOFH excuse',
+	'license-name' => 'GPL-2.0+',
+	'version'      => '1.2'
 );
 
 $wgHooks['ParserFirstCallInit'][] = 'BOFH::bofhExcuse';
