@@ -511,7 +511,12 @@ class BOFH
 			'Look, buddy:  Windows IS A General Protection Fault.',
 			'That\'s a great computer you have there; have you considered how it would work as a BSD machine?',
 			'Please excuse me, I have to circuit an AC line through my head to get this database working.',
-			'Yeah, yo mama dresses you funny and you need a mouse to delete files.'
+			'Yeah, yo mama dresses you funny and you need a mouse to delete files.',
+			'regex engine linked to /dev/random',
+			'wrong quantum signature',
+			'solstitial disturbance',
+			'nonlinear and infinite-dimensional system error',
+			'strange attractors adjoin non-chaotic dimensions'
 		);
 
 		mt_srand((double) microtime() * 1000000);
