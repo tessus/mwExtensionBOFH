@@ -37,7 +37,7 @@ $wgExtensionCredits['parserhook'][] = array(
 	'url'          => 'https://www.mediawiki.org/wiki/Extension:BOFH',
 	'description'  => 'Adds a tag and a function to display a random BOFH excuse',
 	'license-name' => 'GPL-2.0+',
-	'version'      => '1.2'
+	'version'      => '1.3'
 );
 
 $wgHooks['ParserFirstCallInit'][] = 'BOFH::bofhExcuse';
