@@ -1,0 +1,19 @@
+{
+	"name": "BOFH",
+	"version": "1.4",
+	"author": "[https://www.mediawiki.org/wiki/User:Tessus Helmut K. C. Tessarek]",
+	"url": "https://www.mediawiki.org/wiki/Extension:BOFH",
+	"description": "Adds a tag and a function to display a random BOFH excuse",
+	"license-name": "GPL-2.0+",
+	"type": "parserhook",
+	"AutoloadClasses": {
+		"BOFH": "BOFH_body.php"
+	},
+	"ExtensionMessagesFiles": {
+		"BOFH": "BOFH.magic.php"
+	},
+	"Hooks": {
+		"ParserFirstCallInit": "BOFH::bofhExcuse"
+	},
+	"manifest_version": 1
+}

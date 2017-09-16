@@ -12,7 +12,7 @@ git clone https://github.com/tessus/mwExtensionBOFH.git BOFH
 Then add to the bottom of your LocalSettings.php file:
 
 # Extension:BOFH
-require_once("$IP/extensions/BOFH/BOFH.php");
+wfLoadExtension('BOFH');
 
 Usage
 -----
