@@ -66,9 +66,9 @@ class BOFH
 			$width = "width=\"$value\"";
 		}
 
-		$output = "<table border=\"4\" $width cellspacing=\"0\" cellpadding=\"10\" bgcolor=\"#000000\"><td><font color=\"#00ff40\">\n";
+		$output = "<table border=\"4\" $width cellspacing=\"0\" cellpadding=\"10\" bgcolor=\"#000000\"><tr><td><div style=\"font-family: 'Courier New', Courier, monospace; color:#00ff40;\">\n";
 		$output .= htmlspecialchars(BOFH::$excuse, ENT_QUOTES)."\n";
-		$output .= "</font></td></table>\n";
+		$output .= "</div></td></tr></table>\n";
 
 		return $output;
 	}
