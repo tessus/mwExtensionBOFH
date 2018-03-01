@@ -63,12 +63,21 @@ class BOFH
 		}
 		else
 		{
-			$width = "width=\"$value\"";
+			if (substr($value,-1) == '%')
+			{
+				$width = 'width:'.intval($value).'%; ';
+			}
+			else
+			{
+				$width = 'width:'.intval($value).'px; ';
+			}
 		}
 
-		$output = "<table border=\"4\" $width cellspacing=\"0\" cellpadding=\"10\" bgcolor=\"#000000\"><tr><td><div style=\"font-family: 'Courier New', Courier, monospace; color:#00ff40;\">\n";
+		$output = '<table style="'.$width.'border: 4px; border-spacing: 0px; border-top: solid 4px #afafaf; border-left: solid 4px #afafaf; border-right: solid 4px #444444; border-bottom: solid 4px #444444;">';
+		$output .= '<tr><td style="padding:10px; background-color: #000000; border-bottom: solid 1px #afafaf; border-right: solid 1px #afafaf;">';
+		$output .= '<div style="font-family: &#39;Courier New&#39;, Courier, monospace; color:#00ff40;">'."\n";
 		$output .= htmlspecialchars(BOFH::$excuse, ENT_QUOTES)."\n";
-		$output .= "</div></td></tr></table>\n";
+		$output .= '</div></td></tr></table>'."\n";
 
 		return $output;
 	}
