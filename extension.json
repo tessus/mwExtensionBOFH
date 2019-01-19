@@ -1,6 +1,6 @@
 {
 	"name": "BOFH",
-	"version": "1.6",
+	"version": "1.7",
 	"author": "[https://www.mediawiki.org/wiki/User:Tessus Helmut K. C. Tessarek]",
 	"url": "https://www.mediawiki.org/wiki/Extension:BOFH",
 	"description": "Adds a tag and a function to display a random BOFH excuse",
