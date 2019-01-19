@@ -75,7 +75,7 @@ class BOFH
 
 		$output = '<table style="'.$width.'border: 4px; border-spacing: 0px; border-top: solid 4px #afafaf; border-left: solid 4px #afafaf; border-right: solid 4px #444444; border-bottom: solid 4px #444444;">';
 		$output .= '<tr><td style="padding:10px; background-color: #000000; border-bottom: solid 1px #afafaf; border-right: solid 1px #afafaf;">';
-		$output .= '<div style="font-family: &#39;Courier New&#39;, Courier, monospace; color:#00ff40;">'."\n";
+		$output .= '<div style="font-family: Courier, Courier, monospace; color:#00ff40;">'."\n";
 		$output .= htmlspecialchars(BOFH::$excuse, ENT_QUOTES)."\n";
 		$output .= '</div></td></tr></table>'."\n";
 
