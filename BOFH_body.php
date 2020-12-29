@@ -4,7 +4,7 @@
  *
  * This extension adds a tag and a function to display a random BOFH excuse
  *
- * Written by Helmut K. C. Tessarek
+ * Copyright (c) 2014 Helmut K. C. Tessarek
  *
  * https://www.mediawiki.org/wiki/Extension:BOFH
  * https://github.com/tessus/mwExtensionBOFH
