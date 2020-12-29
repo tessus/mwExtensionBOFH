@@ -44,7 +44,7 @@ class BOFH
 
 	public static function renderBOFH( $input, $params, $parser )
 	{
-		$parser->disableCache();
+		$parser->getOutput()->updateCacheExpiry(0);
 		BOFH::randomExcuse();
 
 		$output = $parser->recursiveTagParse(htmlspecialchars(BOFH::$excuse, ENT_QUOTES));
@@ -54,7 +54,7 @@ class BOFH
 
 	public static function functionBOFH( $parser, $value )
 	{
-		$parser->disableCache();
+		$parser->getOutput()->updateCacheExpiry(0);
 		BOFH::randomExcuse();
 
 		if (empty($value) || intval($value) <= 0)
