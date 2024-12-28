@@ -3,7 +3,7 @@
 $magicWords = array();
 
 $magicWords['en'] = array(
-   'bofh' => array( 0, 'bofh' ),
-   );
+	'bofh' => array(0, 'bofh'),
+);
 
 ?>

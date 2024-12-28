@@ -25,16 +25,16 @@
  * http://www.gnu.org/copyleft/gpl.html
  */
 
-if ( !defined('MEDIAWIKI') )
+if (!defined('MEDIAWIKI'))
 {
-	die( 'This file is a MediaWiki extension, it is not a valid entry point' );
+	die('This file is a MediaWiki extension, it is not a valid entry point');
 }
 
 class BOFH
 {
 	static private $excuse = NULL;
 
-	public static function bofhExcuse( &$parser )
+	public static function bofhExcuse(&$parser)
 	{
 		$parser->setHook('bofh', 'BOFH::renderBOFH');
 		$parser->setFunctionHook('bofh', 'BOFH::functionBOFH', SFH_NO_HASH);
@@ -42,7 +42,7 @@ class BOFH
 		return true;
 	}
 
-	public static function renderBOFH( $input, $params, $parser )
+	public static function renderBOFH($input, $params, $parser)
 	{
 		$parser->getOutput()->updateCacheExpiry(0);
 		BOFH::randomExcuse();
@@ -52,7 +52,7 @@ class BOFH
 		return $output;
 	}
 
-	public static function functionBOFH( $parser, $value )
+	public static function functionBOFH($parser, $value)
 	{
 		$parser->getOutput()->updateCacheExpiry(0);
 		BOFH::randomExcuse();
@@ -63,7 +63,7 @@ class BOFH
 		}
 		else
 		{
-			if (substr($value,-1) == '%')
+			if (substr($value, -1) == '%')
 			{
 				$width = 'width:'.intval($value).'%; ';
 			}
